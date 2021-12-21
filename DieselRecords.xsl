@@ -19,7 +19,7 @@
 				</style>
 			</head>
 			<body>
-				<h2><img src="" alt="Javaco Tea Logo" width="58" height="100"/>Diesel Records</h2>
+				<h2><img src="" alt="" width="58" height="100"/>Diesel Records</h2>
 				<p>You can add a new item by selecting the section, typing the name and price of the item, or select an item and delete it!</p>
 				<table id="storeTable" border="1" class="indent">
 					<thead>
