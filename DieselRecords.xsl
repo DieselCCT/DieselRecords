@@ -22,7 +22,7 @@
 						</td>
 					</tr>
 					<xsl:for-each select="option">
-						<tr>
+						<tr id="{position()}">
 							<td align="center">
 								<input name="item0" type="checkbox"/>
 							</td>

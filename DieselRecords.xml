@@ -1,74 +1,73 @@
-<!-- XML copied from the first Mikhail Timofeev's CA and rearanged for use in this CA -->
-<?xml version = "1.0" encoding = "UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <store>
-    <section name="Pins">
-		<option>
-			<item>Guns n' Roses</item>
-			<price>5.50</price>
-		</option>
-		<option>
-			<item>Thin Lizzy</item>
-			<price>5.50</price>
-		</option>
-		<option>
-			<item>Pogues</item>
-			<price>5.50</price>
-		</option>
-	</section>
-	<section name="CDs">
-		<option>
-			<item>The Beatles - Sgt. Pepper's Lonely Hearts Club Band (1967)</item>
-			<price>15.45</price>
-		</option>
-		<option>
-			<item>The Jimi Hendrix Experience - Are You Experienced? (1967)</item>
-			<price>14.50</price>
-		</option>
-		<option>
-			<item>Led Zeppelin - Led Zeppelin (1969)</item>
-			<price>16.50</price>
-		</option>
-	</section>
-	<section name="Vinyls">
-		<option>
-			<item>The Pogues - Red Roses for Me (1984)</item>
-			<price>29.50</price>
-		</option>
-		<option>
-			<item>Thin Lizzy - Jailbreak (1976)</item>
-			<price>26.95</price>
-		</option>
-		<option>
-			<item>Gary Moore - Still Got the Blues (1990)</item>
-			<price>28.35</price>
-		</option>
-	</section>
-	<section name="T-Shirts">
-		<option>
-			<item>Aerosmith</item>
-			<price>15.95</price>
-		</option>
-		<option>
-			<item>Led Zeppelin</item>
-			<price>15.95</price>
-		</option>
-		<option>
-			<item>Thin Lizzy</item>
-			<price>15.95</price>
-		</option>
-	</section>
-	<section name="Other">
-		<option>
-			<item>Guitar Picks</item>
-			<price>3.50</price>
-		</option>
-		<option>
-			<item>Irish Flag</item>
-			<price>25.50</price>
-		</option>
-		<option>
-			<item>Epiphone - Les Paul Standard '50s Vintage Sunburst Satin</item>
-			<price>635.00</price>
-		</option>
-	</section>
+  <section name="Pins">
+    <option>
+      <item>Guns n' Roses</item>
+      <price>5.50</price>
+    </option>
+    <option>
+      <item>Thin Lizzy</item>
+      <price>5.50</price>
+    </option>
+    <option>
+      <item>Pogues</item>
+      <price>5.50</price>
+    </option>
+  </section>
+  <section name="CDs">
+    <option>
+      <item>The Beatles - Sgt. Pepper's Lonely Hearts Club Band (1967)</item>
+      <price>15.45</price>
+    </option>
+    <option>
+      <item>The Jimi Hendrix Experience - Are You Experienced? (1967)</item>
+      <price>14.50</price>
+    </option>
+    <option>
+      <item>Led Zeppelin - Led Zeppelin (1969)</item>
+      <price>16.50</price>
+    </option>
+  </section>
+  <section name="Vinyls">
+    <option>
+      <item>The Pogues - Red Roses for Me (1984)</item>
+      <price>29.50</price>
+    </option>
+    <option>
+      <item>Thin Lizzy - Jailbreak (1976)</item>
+      <price>26.95</price>
+    </option>
+    <option>
+      <item>Gary Moore - Still Got the Blues (1990)</item>
+      <price>28.35</price>
+    </option>
+  </section>
+  <section name="T-Shirts">
+    <option>
+      <item>Aerosmith</item>
+      <price>15.95</price>
+    </option>
+    <option>
+      <item>Led Zeppelin</item>
+      <price>15.95</price>
+    </option>
+    <option>
+      <item>Thin Lizzy</item>
+      <price>15.95</price>
+    </option>
+  </section>
+  <section name="Other">
+    <option>
+      <item>Guitar Picks</item>
+      <price>3.50</price>
+    </option>
+    <option>
+      <item>Irish Flag</item>
+      <price>25.50</price>
+    </option>
+    <option>
+      <item>Epiphone - Les Paul Standard '50s Vintage Sunburst Satin</item>
+      <price>635.00</price>
+    </option>
+  </section>
 </store>
