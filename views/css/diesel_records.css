@@ -4,6 +4,7 @@ body {
     margin: 0px;
     text-align: left;
     color: #523819;
+    display: block;
 }
 h2 {
     font-size: 140%;
@@ -42,11 +43,29 @@ img {
     margin-right: 10px;
     border: 0px;
 }
-.indent {
-    margin-left: 78px;
-}
 
 .selected {
     background-color: crimson;
     color: white;
+}
+
+#adding {
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#add {
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 1rem;
+}
+
+#delete {
+    margin-top: 1rem;
+    margin-left: 10%;
+    width: 80%;
+}
+
+#storeTable {
+    width: 100%;
 }

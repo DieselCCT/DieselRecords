@@ -1,4 +1,5 @@
 //Information taken from Mikhail Timofeev's class
+const req = require('express/lib/request');
 const   http = require('http'),
         path = require('path'),
         express = require('express'),
@@ -45,7 +46,7 @@ router.get('/get/html', function(req, res){
 
 })
 
-router.post('/post/json', function (req, res){
+router.post('/post/json',  function (req, res){
     function appendJSON(obj) {
         console.log(obj)
         XMLtoJSON('DieselRecords.xml', function(err, result) {
@@ -83,3 +84,20 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
     const addr = server.address();
     console.log("Server listening at", addr.address + ":" + addr.port);
 })
+
+const {
+    check
+ } = require('express-validator');
+ const app = express();
+
+ app.use(express.json())
+
+ app.post('/form', [
+    check('item').isLength({
+       min: 1
+    }).trim().escape(),
+    check('price').isNumeric().trim().escape()
+ ], (req, res) => {
+    const name = req.body.item
+    const age = req.body.price
+ })
