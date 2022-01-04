@@ -46,34 +46,37 @@ router.get('/get/html', function(req, res){
 
 })
 
-const {
-    check
- } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
-router.post('/post/json', [
-    check('item').isLength({
-       min: 1
-    }).trim().escape(),
-    check('price').isNumeric().trim().escape()
- ], function (req, res){
-
-    let item = document.getElementsById('item').value;
-    let price = document.getElementsById('price').value;
-
-    function appendJSON(obj) {
-        console.log(obj)
-        XMLtoJSON('DieselRecords.xml', function(err, result) {
-            if(err) throw (err);            
-            result.store.section[obj.sec_n].option.push({'item': obj.item, 'price': obj.price});
-            console.log(JSON.stringify(result, null, "  "));
-            JSONtoXML('DieselRecords.xml', result, function(err){
-                if(err) throw (err);
+router.post(
+    '/post/json',
+    body('item', 'The name of the item cannot be empty!').notEmpty().escape(),
+    body('price', 'Price must be gratter than 0!').isFloat({ min: 0}).escape(),
+    function (req, res){
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            // function doSomething() {
+            //     $(document).ready(function(){
+            //         $("#item").after("<p>The name of the item cannot be empty!</p>")
+            //     })
+            // };
+            return res.json({ errors: errors.array() });
+        }
+        function appendJSON(obj) {
+            console.log(obj)
+            XMLtoJSON('DieselRecords.xml', function(err, result) {
+                if(err) throw (err);            
+                result.store.section[obj.sec_n].option.push({'item': obj.item, 'price': obj.price});
+                console.log(JSON.stringify(result, null, "  "));
+                JSONtoXML('DieselRecords.xml', result, function(err){
+                    if(err) throw (err);
+                });
             });
-        });
-    };
+        };
 
     appendJSON(req.body);
     res.redirect('back');
+
 });
 
 router.post('/post/delete', function (req, res){
@@ -97,20 +100,3 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
     const addr = server.address();
     console.log("Server listening at", addr.address + ":" + addr.port);
 })
-
-/* const {
-    check
- } = require('express-validator');
- const app = express();
-
- app.use(express.json())
-
- app.post('/form', [
-    check('item').isLength({
-       min: 1
-    }).trim().escape(),
-    check('price').isNumeric().trim().escape()
- ], (req, res) => {
-    const name = req.body.item
-    const age = req.body.price
- })*/
