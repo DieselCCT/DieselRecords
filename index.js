@@ -46,11 +46,24 @@ router.get('/get/html', function(req, res){
 
 })
 
-router.post('/post/json',  function (req, res){
+const {
+    check
+ } = require('express-validator');
+
+router.post('/post/json', [
+    check('item').isLength({
+       min: 1
+    }).trim().escape(),
+    check('price').isNumeric().trim().escape()
+ ], function (req, res){
+
+    let item = document.getElementsById('item').value;
+    let price = document.getElementsById('price').value;
+
     function appendJSON(obj) {
         console.log(obj)
         XMLtoJSON('DieselRecords.xml', function(err, result) {
-            if(err) throw (err);
+            if(err) throw (err);            
             result.store.section[obj.sec_n].option.push({'item': obj.item, 'price': obj.price});
             console.log(JSON.stringify(result, null, "  "));
             JSONtoXML('DieselRecords.xml', result, function(err){
@@ -85,7 +98,7 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
     console.log("Server listening at", addr.address + ":" + addr.port);
 })
 
-const {
+/* const {
     check
  } = require('express-validator');
  const app = express();
@@ -100,4 +113,4 @@ const {
  ], (req, res) => {
     const name = req.body.item
     const age = req.body.price
- })
+ })*/
