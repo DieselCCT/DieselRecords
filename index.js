@@ -66,7 +66,7 @@ const { body, validationResult } = require('express-validator');
 router.post(
     '/post/json',
     body('item').not().isEmpty().trim().escape(),
-    body('price').isFloat({min:0}).escape()),
+    body('price').isFloat({min:0}).escape(),
     function (req, res){
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -89,6 +89,7 @@ router.post(
         appendJSON(req.body);
         res.redirect('back');
     });
+    
 
 router.post('/post/delete', function (req, res){
     function deleteJSON(obj) {
