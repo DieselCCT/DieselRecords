@@ -48,23 +48,35 @@ router.get('/get/html', function(req, res){
 
 const { body, validationResult } = require('express-validator');
 
+// function appendHTML(obj){
+    
+//     let errors = [];
+
+//     alert("hey")
+//     console.log(obj)
+
+//     $.getJSON('obj', function(data){
+//         $.each(data.errors, function(i,f){
+//             let msg = "<p>" + f.msg + "</p>"
+//             $(msg).appendTo('#'+f.parm)
+//         })
+//     })
+// }
+
 router.post(
     '/post/json',
-    body('item', 'The name of the item cannot be empty!').notEmpty().escape(),
-    body('price', 'Price must be gratter than 0!').isFloat({ min: 0}).escape(),
+    body('item').not().isEmpty().trim().escape(),
+    body('price').isFloat({min:0}).escape()),
     function (req, res){
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            // function doSomething() {
-            //     $(document).ready(function(){
-            //         $("#item").after("<p>The name of the item cannot be empty!</p>")
-            //     })
-            // };
-            return res.json({ errors: errors.array() });
+            return res.json({ errors: errors.array() })
+            //appendHTML()
         }
         function appendJSON(obj) {
             console.log(obj)
-            XMLtoJSON('DieselRecords.xml', function(err, result) {
+            XMLtoJSON('DieselRecords.xml', 
+            function(err, result) {
                 if(err) throw (err);            
                 result.store.section[obj.sec_n].option.push({'item': obj.item, 'price': obj.price});
                 console.log(JSON.stringify(result, null, "  "));
@@ -73,11 +85,10 @@ router.post(
                 });
             });
         };
-
-    appendJSON(req.body);
-    res.redirect('back');
-
-});
+        
+        appendJSON(req.body);
+        res.redirect('back');
+    });
 
 router.post('/post/delete', function (req, res){
     function deleteJSON(obj) {
